@@ -51,7 +51,7 @@ class ResultFragment : Fragment() {
                     call: Call<CalculateModel>,
                     response: Response<CalculateModel>,
                 ) {
-                     binding?.tvPercentage?.text=response.body()?.percentage
+                     binding?.tvPercentage?.text=(response.body()?.percentage+"%")
                 }
 
                 override fun onFailure(call: Call<CalculateModel>, t: Throwable) {

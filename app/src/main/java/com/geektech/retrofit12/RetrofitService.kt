@@ -9,7 +9,7 @@ import retrofit2.converter.gson.GsonConverterFactory
 class RetrofitService {
 
     val retrofit = Retrofit.Builder()
-        .baseUrl("http://love-calculator.p.rapidapi.com/")
+        .baseUrl("https://love-calculator.p.rapidapi.com/")
         .addConverterFactory(GsonConverterFactory.create())
         .client(getClient())
         .build()

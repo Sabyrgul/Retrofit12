@@ -11,6 +11,6 @@ interface CalculateAPI {
     fun getPercentage(
         @Query("sname") secondName:String,
         @Query("fname") firstName:String,
-        @Header("X-RapidAPI-key")apiKey:String="9f2b90dc4bmsh47f22a0adf20dc7p11affajsn08ae8464d2e"
+        @Header("X-RapidAPI-key")apiKey:String="9f2b90dc4bmsh47f22a0adf20dc7p11affajsn08ae8464d2ee"
     ): Call<CalculateModel>
 }
