@@ -19,7 +19,7 @@ class ResultFragment : Fragment() {
     private var secondName = ""
     private val viewModel: ActivityViewModel by viewModels()
 
-    lateinit var slovo:java.lang.StringBuilder
+    //lateinit var slovo:java.lang.StringBuilder
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -31,8 +31,7 @@ class ResultFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-
-        Log.e("Result tag","onViewCreated $slovo")
+        Log.e("Result tag","onViewCreated ")
 
         setFragmentResultListener("names") { _, bundle ->
             firstName = bundle.getString("first name").toString()
