@@ -15,4 +15,15 @@
         android:name="com.geektech.retrofit12.ResultFragment"
         android:label="Result"
         tools:layout="@layout/fragment_result" />
+    <fragment
+        android:id="@+id/onBoardFragment"
+        android:name="com.geektech.retrofit12.on_board.OnBoardFragment"
+        android:label="On Boarding"
+        tools:layout="@layout/fragment_on_board" />
+    <fragment
+        android:id="@+id/onBoardFirstFragment"
+        android:name="com.geektech.retrofit12.on_board.OnBoardFirstFragment"
+        android:label="On Boarding"
+        tools:layout="@layout/fragment_on_board_first" />
+
 </navigation>

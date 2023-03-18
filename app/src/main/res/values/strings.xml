@@ -13,4 +13,9 @@
     <string name="me">Me</string>
     <string name="your_score">Your score</string>
     <string name="try_again">Try again</string>
+    <string name="it_s_funs_and_many_more">It\'s Funs and Many more</string>
+    <string name="have_a_good_time">Have a good time</string>
+    <string name="you_should_take_the_time_to_help_those_who_need_you">You should take the time to help those who need you</string>
+    <string name="get_started">Get Started</string>
+    <string name="start">start</string>
 </resources>

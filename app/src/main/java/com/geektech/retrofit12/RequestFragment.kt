@@ -1,6 +1,7 @@
 package com.geektech.retrofit12
 
 import android.os.Bundle
+import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
@@ -12,12 +13,18 @@ import androidx.fragment.app.setFragmentResult
 import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
 import com.geektech.retrofit12.databinding.FragmentRequestBinding
+import dagger.hilt.android.AndroidEntryPoint
 import retrofit2.Call
 import retrofit2.Response
+import javax.inject.Inject
 
+@AndroidEntryPoint
 class RequestFragment : Fragment() {
 
     private var binding:FragmentRequestBinding?=null
+
+    @Inject
+    lateinit var slovo:java.lang.StringBuilder
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -30,6 +37,9 @@ class RequestFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         onClick()
+        Log.e("TAG", "onViewCreated:$slovo")
+        slovo.append("Second word")
+        Log.e("TAG", "onViewCreated:$slovo")
     }
     private fun onClick() {
         binding?.btnRequest?.setOnClickListener {
