@@ -31,4 +31,12 @@ class Repository @Inject constructor(private val api: CalculateAPI) {
         )
         return liveData
     }
+
+    fun saveData():LiveData<CalculateModel>{
+
+        val roomLiveData=MutableLiveData<CalculateModel>()
+        roomLiveData.postValue(CalculateModel(firstName = "Alina", secondName = "Azamat", percentage = "80%", result = "good choice"))
+
+        return roomLiveData
+    }
 }

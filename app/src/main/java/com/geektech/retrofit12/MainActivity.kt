@@ -38,8 +38,7 @@ class MainActivity : AppCompatActivity() {
                 R.id.onBoardFirstFragment
             )
         )
-        val preferences=Preferences(this)
-        if(preferences.getHaveSeenBoarding())
+        if(viewModel.getHaveSeenBoarding())
             navController.navigate(R.id.requestFragment)
         else
             navController.navigate(R.id.onBoardFirstFragment)

@@ -1,8 +1,11 @@
 package com.geektech.retrofit12
 
+import android.content.Context
+import android.content.SharedPreferences
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
+import dagger.hilt.android.qualifiers.ApplicationContext
 import dagger.hilt.components.SingletonComponent
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
@@ -50,4 +53,23 @@ class HiltModules {
     fun getString():java.lang.StringBuilder{
         return StringBuilder("Hello")
     }
+
+    @Provides
+    @Singleton
+    fun provideSharedPreference(@ApplicationContext context: Context): SharedPreferences {
+        return context.getSharedPreferences("utils", Context.MODE_PRIVATE)
+    }
+    @Provides
+    fun providePrefs(sharedPreferences: SharedPreferences) = Preference(sharedPreferences)
+
+
+//    @Provides
+//    fun getHaveSeenBoarding() = provideSharedPreference(Context).getBoolean("Have seen", false)
+//    fun getCalculateDataBase():CalculateDataBase{
+// return
+//    }
+
+//    fun getDao():CalculateDao{
+//        getCalculateDataBase().getCalculateDao()
+//    }
 }

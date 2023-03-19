@@ -1,18 +1,21 @@
 package com.geektech.retrofit12.on_board
 
+import android.annotation.SuppressLint
 import android.os.Build
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
 import androidx.viewpager2.widget.ViewPager2
-import com.geektech.retrofit12.Preferences
+import com.geektech.retrofit12.ActivityViewModel
 import com.geektech.retrofit12.R
 import com.geektech.retrofit12.databinding.FragmentOnBoardPageBinding
 
 class OnBoardPageFragment : Fragment() {
+
 
     companion object {
         const val IS_LAST_ARG = "is _last"
@@ -33,13 +36,12 @@ class OnBoardPageFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
         initViews()
         binding?.btnStart?.setOnClickListener {
-            findNavController().navigate(R.id.requestFragment)
-            Preferences(requireContext()).apply {
-                setHaveSeenOnBoarding(true)
-            }
+
+            (parentFragment as OnBoardListeners).onStartClicked()
         }
     }
 
+    @SuppressLint("SuspiciousIndentation")
     private fun initViews() {
 
         val isLast = arguments?.getBoolean(IS_LAST_ARG)
@@ -65,6 +67,8 @@ class OnBoardPageFragment : Fragment() {
     }
 
     interface OnBoardListeners {
+
+        fun onStartClicked()
         fun getViewPager(): ViewPager2
     }
 }

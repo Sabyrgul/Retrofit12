@@ -5,15 +5,18 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
 import androidx.viewpager2.widget.ViewPager2
-import com.geektech.retrofit12.Preferences
+import com.geektech.retrofit12.ActivityViewModel
 import com.geektech.retrofit12.R
 import com.geektech.retrofit12.databinding.FragmentOnBoardBinding
+import dagger.hilt.android.AndroidEntryPoint
 
-
+@AndroidEntryPoint
 class OnBoardFragment : Fragment(), OnBoardPageFragment.OnBoardListeners {
 
+    private val viewModel: ActivityViewModel by viewModels()
     private var binding: FragmentOnBoardBinding? = null
     private var boardAdapter: OnBoardAdapter? = null
     private var boardModels = listOf(
@@ -29,7 +32,7 @@ class OnBoardFragment : Fragment(), OnBoardPageFragment.OnBoardListeners {
             description = "It is now no longer possible for you to cherish love"
         ),
         BoardModel(
-            imageRes = R.drawable.on_board3,
+            imageRes = R.drawable.on_board4,
             title = "Have a breakup?",
             description = "We have made the correction for you \ndon't worry. \nMay be someone is waiting for you"
         )
@@ -54,6 +57,12 @@ class OnBoardFragment : Fragment(), OnBoardPageFragment.OnBoardListeners {
         )
 
         binding?.viewpager?.adapter = boardAdapter
+    }
+
+    override fun onStartClicked() {
+        viewModel.setHaveSeenOnBoard()
+        findNavController().navigate(R.id.requestFragment)
+
     }
 
 

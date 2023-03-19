@@ -40,7 +40,10 @@ class ResultFragment : Fragment() {
             binding?.tvMe?.text = secondName
             viewModel.makeRequest(firstName, secondName)
                 .observe(viewLifecycleOwner) {
+                    App.db.getCalculateDao().getAllFromHistory()
+                    App.db.getCalculateDao().addCalculateModel(it)
                     binding?.tvPercentage?.text = (it.percentage+"%")
+                    viewModel.livedata.postValue(it)
                 }
         }
 
