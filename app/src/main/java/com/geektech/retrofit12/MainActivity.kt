@@ -31,11 +31,12 @@ class MainActivity : AppCompatActivity() {
         val appBarConfiguration = AppBarConfiguration(
             setOf(
                 R.id.navigation_home,
-                R.id.navigation_history,
                 R.id.requestFragment,
                 R.id.resultFragment,
                 R.id.onBoardFragment,
-                R.id.onBoardFirstFragment
+                R.id.onBoardFirstFragment,
+                R.id.historyFragment
+
             )
         )
         if(viewModel.getHaveSeenBoarding())

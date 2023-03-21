@@ -63,12 +63,6 @@ class HiltModules {
     fun providePrefs(sharedPreferences: SharedPreferences) = Preference(sharedPreferences)
 
 
-//    @Provides
-//    fun getHaveSeenBoarding() = provideSharedPreference(Context).getBoolean("Have seen", false)
-//    fun getCalculateDataBase():CalculateDataBase{
-// return
-//    }
-
 //    fun getDao():CalculateDao{
 //        getCalculateDataBase().getCalculateDao()
 //    }

@@ -25,5 +25,10 @@
         android:name="com.geektech.retrofit12.on_board.OnBoardFirstFragment"
         android:label="On Boarding"
         tools:layout="@layout/fragment_on_board_first" />
+    <fragment
+        android:id="@+id/historyFragment"
+        android:name="com.geektech.retrofit12.history.HistoryFragment"
+        android:label="History"
+        tools:layout="@layout/fragment_history" />
 
 </navigation>
