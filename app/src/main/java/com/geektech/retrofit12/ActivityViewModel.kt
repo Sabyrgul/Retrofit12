@@ -28,7 +28,5 @@ class ActivityViewModel @Inject constructor(private val repository: Repository,
 
     fun saveData(data:CalculateModel){
         livedata.postValue(data)
-    }
-
-
+    }       
 }

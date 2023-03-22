@@ -5,6 +5,7 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
 import androidx.fragment.app.viewModels
 import com.geektech.retrofit12.ActivityViewModel
 import com.geektech.retrofit12.App
@@ -13,11 +14,11 @@ import com.geektech.retrofit12.databinding.FragmentHistoryBinding
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
-class HistoryFragment : Fragment() {
+class HistoryFragment : Fragment(),IItemClick {
 
     private val viewModel: ActivityViewModel by viewModels()
     private var binding:FragmentHistoryBinding?=null
-    private val historyAdapter = HistoryAdapter(mutableListOf())
+    private val historyAdapter = HistoryAdapter(mutableListOf(),this)
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -32,6 +33,10 @@ class HistoryFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
 
         binding?.rvList?.adapter=historyAdapter
+        newList()
+    }
+
+    private fun newList() {
         val tasks =App?.db?.getCalculateDao()?.getAllFromHistory()
         val calculateModels = tasks?.map {
             CalculateModel(
@@ -44,6 +49,12 @@ class HistoryFragment : Fragment() {
         calculateModels?.let {
             historyAdapter.renew(it)
         }
+    }
+
+    override fun delete(position: Int) {
+        Toast.makeText(requireContext(), "Successful position:$position", Toast.LENGTH_LONG).show()
+        historyAdapter.delete(position)
+       newList()
     }
 
 

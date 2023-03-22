@@ -1,6 +1,7 @@
 package com.geektech.retrofit12
 
 import androidx.room.Dao
+import androidx.room.Delete
 import androidx.room.Insert
 import androidx.room.Query
 
@@ -12,4 +13,7 @@ interface CalculateDao {
 
     @Insert
     fun addCalculateModel(model: CalculateModel)
+
+    @Delete
+    fun deleteCalculateModel(model: CalculateModel)
 }

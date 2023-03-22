@@ -63,7 +63,8 @@ class HiltModules {
     fun providePrefs(sharedPreferences: SharedPreferences) = Preference(sharedPreferences)
 
 
-//    fun getDao():CalculateDao{
-//        getCalculateDataBase().getCalculateDao()
-//    }
+    @Provides
+    fun getDao(dataBase: CalculateDataBase):CalculateDao{
+        return dataBase.getCalculateDao()
+    }
 }
